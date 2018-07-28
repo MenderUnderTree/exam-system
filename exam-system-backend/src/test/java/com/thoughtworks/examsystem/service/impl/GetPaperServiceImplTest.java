@@ -1,5 +1,7 @@
 package com.thoughtworks.examsystem.service.impl;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.thoughtworks.examsystem.ExamSystemApplication;
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
 import com.thoughtworks.examsystem.dao.ItemDao;
@@ -14,6 +16,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
+import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
@@ -83,5 +86,10 @@ public class GetPaperServiceImplTest {
     public void doService() {
         GetPaperResponse result = getPaperService.doService(paperId);
         Assert.assertThat(result.getItemBeanList().size(), Is.is(2));
+    }
+
+    @Test
+    public void he() {
+
     }
 }
