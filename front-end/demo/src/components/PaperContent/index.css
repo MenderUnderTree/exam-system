@@ -1,3 +1,21 @@
+.paper-content {
+  width: 80%;
+  text-align: left;
+  margin: 0 auto;
+}
+
 .paper-content .hidden {
   display: none;
+}
+
+.paper-content .answer-correct {
+  color: green;
+}
+
+.paper-content .answer-wrong {
+  color: red;
+}
+
+.paper-content .question-title {
+  display: block;
 }
