@@ -3,7 +3,9 @@ package com.thoughtworks.examsystem.service.impl;
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
 import com.thoughtworks.examsystem.bean.ItemBean;
 import com.thoughtworks.examsystem.dao.PaperDao;
+import com.thoughtworks.examsystem.dao.PaperUserRepository;
 import com.thoughtworks.examsystem.entity.Paper;
+import com.thoughtworks.examsystem.exception.PaperHasBeenFinishedException;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Service;
@@ -24,9 +26,12 @@ public class GetPaperServiceImpl implements GetPaperService {
     @Resource
     private PaperDao paperDao;
     @Resource
-    private 
+    private PaperUserRepository paperUserRepository;
     @Override
     public GetPaperResponse doService(long paperId) {
+        if (!paperUserRepository.getByPaperId(paperId).isEmpty()) {
+            throw new PaperHasBeenFinishedException();
+        }
         Paper paper = paperDao.getOne(paperId);
         DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
         GetPaperResponse getPaperResponse = new GetPaperResponse();

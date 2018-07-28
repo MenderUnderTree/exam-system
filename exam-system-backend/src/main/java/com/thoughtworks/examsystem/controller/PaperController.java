@@ -1,14 +1,13 @@
 package com.thoughtworks.examsystem.controller;
 
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
-import com.thoughtworks.examsystem.controller.ErrorInfo;
+import com.thoughtworks.examsystem.bean.ErrorInfo;
 import com.thoughtworks.examsystem.dao.PaperRepository;
 import com.thoughtworks.examsystem.dao.PaperUserRepository;
 import com.thoughtworks.examsystem.dto.PageReturn;
 import com.thoughtworks.examsystem.dto.PaperReturn;
 import com.thoughtworks.examsystem.entity.Paper;
 import com.thoughtworks.examsystem.exception.BadRequestException;
-import com.thoughtworks.examsystem.exception.PaperHasBeenFinishedException;
 import com.thoughtworks.examsystem.entity.PaperUser;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 

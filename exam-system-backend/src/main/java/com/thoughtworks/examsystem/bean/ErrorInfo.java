@@ -1,4 +1,4 @@
-package com.thoughtworks.examsystem.controller;
+package com.thoughtworks.examsystem.bean;
 
 /**
  * @author : luoweiyao
