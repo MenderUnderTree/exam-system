@@ -13,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PaperReturn extends Paper {
-    private Long point;
+    private Integer point;
     private Boolean isFinished;
 
     public PaperReturn(Paper paper, PaperUser pu) {
