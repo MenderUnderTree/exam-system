@@ -6,8 +6,11 @@ import com.thoughtworks.examsystem.ExamSystemApplication;
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
 import com.thoughtworks.examsystem.dao.ItemDao;
 import com.thoughtworks.examsystem.dao.PaperDao;
+import com.thoughtworks.examsystem.dao.PaperUserRepository;
 import com.thoughtworks.examsystem.entity.Item;
 import com.thoughtworks.examsystem.entity.Paper;
+import com.thoughtworks.examsystem.entity.PaperUser;
+import com.thoughtworks.examsystem.exception.PaperHasBeenFinishedException;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.hamcrest.core.Is;
 import org.junit.Assert;
@@ -49,8 +52,12 @@ public class GetPaperServiceImplTest {
     private PaperDao paperDao;
     @Autowired
     private ItemDao itemDao;
+    @Autowired
+    private PaperUserRepository repository;
 
     private long paperId;
+    private long finishedPaperId;
+
     @Before
     public void init() {
         List<Item> items = new ArrayList<>();
@@ -80,16 +87,28 @@ public class GetPaperServiceImplTest {
         paper.setPrice(34);
         paper.setItems(items);
         paperId = paperDao.save(paper).getId();
+
+        Paper finishedPaper = new Paper();
+        paper.setName("finished");
+        paper.setPrice(0);
+        paper.setItems(items);
+        finishedPaperId = paperDao.save(paper).getId();
+
+        PaperUser paperUser = new PaperUser();
+        paperUser.setPaperId(finishedPaperId);
+        paperUser.setUserId(1L);
+        paperUser.setPoint(23);
+        repository.save(paperUser);
     }
 
     @Test
-    public void doService() {
+    public void testDoService() {
         GetPaperResponse result = getPaperService.doService(paperId);
         Assert.assertThat(result.getItemBeanList().size(), Is.is(2));
     }
 
-    @Test
-    public void he() {
-
+    @Test(expected = PaperHasBeenFinishedException.class)
+    public void getExceptionWhenPaperIsFinished() {
+        getPaperService.doService(finishedPaperId);
     }
 }
