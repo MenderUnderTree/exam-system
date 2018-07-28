@@ -93,7 +93,6 @@ buildNumber.properties
 .idea/encodings.xml
 exam-system-backend/src/main/resources/static/
 exam-system-backend/src/main/resources/templates/
-front-end/
 untitled/
 src/main/resources/static/
 src/main/resources/templates/
