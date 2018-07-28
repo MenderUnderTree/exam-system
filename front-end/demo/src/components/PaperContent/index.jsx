@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import QuestionItem from './questionItem'
 import { Button, Popover } from 'antd'
 
+import './index.css'
+
 class PaperContent extends Component {
     constructor(props) {
         super(props);
@@ -10,11 +12,12 @@ class PaperContent extends Component {
           popupVisible: false,
           questionList: [],
           isPreview: false,
-          totalPoints: null
+          totalPoints: null,
         };
     }
 
     componentDidMount () {
+      // Fetch data
         this.setState({
           paperName: '语文',
           questionList: [
@@ -22,13 +25,15 @@ class PaperContent extends Component {
               id:1,
               description: '题目题目题目题目题目题目题目题目题目题目',
               points: '50',
-              anwsers: ['非常好', '好', '一般', '不好']
+              anwsers: ['非常好', '好', '一般', '不好'],
+              correctIndex: 1
             },
             {
               id:2,
               description: '题目题目题目题目题目题目题目题目题目题目',
               points: '50',
-              anwsers: ['非常好', '好', '一般', '不好']
+              anwsers: ['非常好', '好', '一般', '不好'],
+              correctIndex: 1
             }
           ]
         })
@@ -43,6 +48,7 @@ class PaperContent extends Component {
         popupVisible: false,
         isPreview: true
       })
+      // Fetch data
     }
 
     render() {
@@ -60,12 +66,13 @@ class PaperContent extends Component {
                       description={e.description}
                       points={e.points}
                       anwsers={e.anwsers}
-                      ispreview={isPreview}
+                      isPreview={isPreview}
+                      correctIndex={e.correctIndex}
                     />
                   ))
                 }
                 <Popover
-                  content={<a onClick={this.handleSubmit}>确认！</a>}
+                  content={<a onClick={this.handleSubmit}>确定！</a>}
                   title="确定提交？"
                   trigger="click"
                   visible={this.state.popupVisible}
