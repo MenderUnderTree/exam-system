@@ -1,15 +1,11 @@
 package com.thoughtworks.examsystem.entity;
 
-
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.*;
 import java.util.List;
 
 /**
  * @Auther: Realks
- * @Date: 2018/7/28 22:44
+ * @Date: 2018/7/29 04:04
  * @Description:
  */
 @Entity
@@ -65,3 +61,4 @@ public class Paper {
         this.items = items;
     }
 }
+
