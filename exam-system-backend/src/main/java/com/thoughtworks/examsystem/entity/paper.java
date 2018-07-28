@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @Auther: Realks
@@ -13,12 +14,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "tb_paper")
-@Getter
-@Setter
 public class Paper {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column
     private String name;
@@ -26,4 +25,43 @@ public class Paper {
     @Column
     private Integer price;
 
+    @ManyToMany
+    @JoinTable(
+            name = "tb_paper_item",
+            joinColumns = {@JoinColumn(name = "item_id", referencedColumnName = "id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "paper_id",referencedColumnName = "id",nullable = false)}
+    )
+    private List<Item> items;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
+    }
 }

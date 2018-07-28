@@ -11,9 +11,23 @@ import java.util.List;
  * @project : exam-system
  * @package : com.thoughtworks.examsystem.bean
  */
-@Getter
-@Setter
 public class GetPaperResponse {
     private String paperName;
     private List<ItemBean> itemBeanList;
+
+    public List<ItemBean> getItemBeanList() {
+        return itemBeanList;
+    }
+
+    public void setItemBeanList(List<ItemBean> itemBeanList) {
+        this.itemBeanList = itemBeanList;
+    }
+
+    public String getPaperName() {
+        return paperName;
+    }
+
+    public void setPaperName(String paperName) {
+        this.paperName = paperName;
+    }
 }

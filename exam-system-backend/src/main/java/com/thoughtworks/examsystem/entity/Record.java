@@ -17,7 +17,7 @@ import javax.persistence.*;
 public class Record {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "paper_user_id")
     private Integer paperUserId;
