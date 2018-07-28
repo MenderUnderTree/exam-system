@@ -3,6 +3,7 @@ package com.thoughtworks.examsystem.controller;
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
 import com.thoughtworks.examsystem.dao.PaperRepository;
 import com.thoughtworks.examsystem.dto.PageReturn;
+import com.thoughtworks.examsystem.dto.PaperReturn;
 import com.thoughtworks.examsystem.entity.Paper;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,11 @@ public class PaperController {
 
 
     @RequestMapping(value = "/papers",method = RequestMethod.GET)
-    public PageReturn<Paper> getAll(int currentPage,int pageSize){
+    public PageReturn<PaperReturn> getAll(int currentPage, int pageSize){
         Sort sort = new Sort(Sort.Direction.DESC,"id");
         Pageable pageable = PageRequest.of(currentPage + 1,pageSize,sort);
         Page<Paper> datas = repository.findAll(pageable);
 
-        return new PageReturn<Paper>(currentPage,datas.getTotalElements(),datas.getContent());
+        return new PageReturn<PaperReturn>();
     }
 }
