@@ -23,6 +23,8 @@ import java.util.stream.Collectors;
 public class GetPaperServiceImpl implements GetPaperService {
     @Resource
     private PaperDao paperDao;
+    @Resource
+    private 
     @Override
     public GetPaperResponse doService(long paperId) {
         Paper paper = paperDao.getOne(paperId);

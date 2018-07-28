@@ -1,19 +1,24 @@
-package com.thoughtworks.examsystem.controller;
+package com.thoughtworks.examsystem.bean;
 
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
+import com.thoughtworks.examsystem.controller.ErrorInfo;
 import com.thoughtworks.examsystem.dao.PaperRepository;
 import com.thoughtworks.examsystem.dto.PageReturn;
 import com.thoughtworks.examsystem.dto.PaperReturn;
 import com.thoughtworks.examsystem.entity.Paper;
+import com.thoughtworks.examsystem.exception.BadRequestException;
+import com.thoughtworks.examsystem.exception.PaperHasBeenFinishedException;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -44,5 +49,14 @@ public class PaperController {
         Page<Paper> datas = repository.findAll(pageable);
 
         return new PageReturn<PaperReturn>();
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorInfo exceptionHandler(BadRequestException ex) {
+        ErrorInfo errorInfo = new ErrorInfo();
+        errorInfo.setCode(ex.getCode());
+        errorInfo.setMsg(ex.getDescription());
+        return errorInfo;
     }
 }
