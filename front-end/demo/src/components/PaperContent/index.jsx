@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import QuestionItem from './questionItem'
-import { Button } from 'antd'
+import { Button, Popover } from 'antd'
 
 class PaperContent extends Component {
     constructor(props) {
         super(props);
         this.state = {
           paperName: '',
-          confirmPop: false,
+          popupVisible: false,
           questionList: [],
           isPreview: false,
           totalPoints: null
@@ -34,6 +34,17 @@ class PaperContent extends Component {
         })
     }
 
+    handleVisibleChange = (popupVisible) => {
+      this.setState({ popupVisible });
+    }
+
+    handleSubmit = () => {
+      this.setState({
+        popupVisible: false,
+        isPreview: true
+      })
+    }
+
     render() {
       const { paperName, questionList, isPreview, totalPoints } = this.state
 
@@ -53,7 +64,15 @@ class PaperContent extends Component {
                     />
                   ))
                 }
-                <Button className={isPreview ? 'hidden' : ''} type="primary">提交答卷</Button>
+                <Popover
+                  content={<a onClick={this.handleSubmit}>确认！</a>}
+                  title="确定提交？"
+                  trigger="click"
+                  visible={this.state.popupVisible}
+                  onVisibleChange={this.handleVisibleChange}
+                >
+                  <Button className={isPreview ? 'hidden' : ''} type="primary">提交答卷</Button>
+                </Popover>
             </div>
         );
     }
