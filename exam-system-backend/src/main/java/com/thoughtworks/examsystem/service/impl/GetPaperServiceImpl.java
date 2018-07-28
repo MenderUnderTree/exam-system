@@ -9,6 +9,7 @@ import org.dozer.DozerBeanMapper;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,9 +28,10 @@ public class GetPaperServiceImpl implements GetPaperService {
         Paper paper = paperDao.getOne(paperId);
         DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
         GetPaperResponse getPaperResponse = new GetPaperResponse();
-        List<ItemBean> itemBeanList = paper.getItems().stream().map(item ->
-                dozerBeanMapper.map(item, ItemBean.class)
-        ).collect(Collectors.toList());
+        List<ItemBean> itemBeanList = paper.getItems().stream()
+                .map(item -> dozerBeanMapper.map(item, ItemBean.class))
+                .sorted(Comparator.comparingLong(ItemBean::getId))
+                .collect(Collectors.toList());
         getPaperResponse.setPaperName(paper.getName());
         getPaperResponse.setItemBeanList(itemBeanList);
 
