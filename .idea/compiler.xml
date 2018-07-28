@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="exam-system" />
         <module name="exam-system-backend" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="exam-system" target="1.8" />
       <module name="exam-system-backend" target="1.8" />
     </bytecodeTargetLevel>
   </component>
