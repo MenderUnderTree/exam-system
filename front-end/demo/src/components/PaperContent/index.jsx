@@ -18,24 +18,20 @@ class PaperContent extends Component {
 
     componentDidMount () {
       // Fetch data
+      // get /papers/{paperId}
+        const mockData = {"paperName":"dsa","itemBeanList":[{"itemId":1,"points":5,"description":"jiojiwda","optionA":"hui","optionB":"da","optionC":"dawdw","optionD":"dwa"},{"itemId":2,"points":5,"description":"jiojiwda","optionA":"hui","optionB":"da","optionC":"dawdw","optionD":"dwa"}]}
+        const questionList = mockData.itemBeanList.map((e) => {
+          return {
+            itemId: e.itemId,
+            description: e.description,
+            points: e.points,
+            anwsers: [e.optionA, e.optionB, e.optionC, e.optionD]
+          }
+        })
+
         this.setState({
           paperName: '语文',
-          questionList: [
-            {
-              id:1,
-              description: '题目题目题目题目题目题目题目题目题目题目',
-              points: '50',
-              anwsers: ['非常好', '好', '一般', '不好'],
-              correctIndex: 1
-            },
-            {
-              id:2,
-              description: '题目题目题目题目题目题目题目题目题目题目',
-              points: '50',
-              anwsers: ['非常好', '好', '一般', '不好'],
-              correctIndex: 1
-            }
-          ]
+          questionList
         })
     }
 
