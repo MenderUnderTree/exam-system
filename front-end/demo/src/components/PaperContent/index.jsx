@@ -9,7 +9,8 @@ class PaperContent extends Component {
           paperName: '',
           confirmPop: false,
           questionList: [],
-          isPreview: false
+          isPreview: false,
+          totalPoints: null
         };
     }
 
@@ -34,11 +35,12 @@ class PaperContent extends Component {
     }
 
     render() {
-      const { paperName, questionList, isPreview } = this.state
+      const { paperName, questionList, isPreview, totalPoints } = this.state
 
         return (
             <div className='paper-content'>
                 <h1 className="paper-title">{paperName}</h1>
+                { totalPoints && <h2 className="total-points">{`总分: ${totalPoints}分`}</h2> }
                 {
                   questionList.map((e, i) => (
                     <QuestionItem 
@@ -51,7 +53,7 @@ class PaperContent extends Component {
                     />
                   ))
                 }
-                <Button type="primary">提交答卷</Button>
+                <Button className={isPreview ? 'hidden' : ''} type="primary">提交答卷</Button>
             </div>
         );
     }
