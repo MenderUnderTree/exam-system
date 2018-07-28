@@ -19,6 +19,9 @@ class App extends Component {
             <section>
                 <header className="App-header">
                     <h1 className="App-title">555 <span>做更好的自己</span></h1>
+                    <div className="App-user">
+                        <span>张同学</span>
+                    </div>
                 </header>
                 <section className="App-content">
                     <HashRouter basename="/" >

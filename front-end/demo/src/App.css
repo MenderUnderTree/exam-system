@@ -9,15 +9,24 @@ html,body {
 .App-header {
   background-color: #222;
   height: 80px;
-  line-height: 50px;
+  line-height: 80px;
   color: white;
   position: fixed;
   width: 100%;
   top: 0;
 }
 
+.App-user{
+  position: absolute;
+  width: 100px;
+  height: 80px;
+  top: 0;
+  right: 0;
+}
+
 .App-title {
   font-size: 1.5em;
+  color: #FFFFFF;
 }
  .App-title span{
    font-size: 12px;
