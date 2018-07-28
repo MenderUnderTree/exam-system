@@ -1,6 +1,7 @@
 package com.thoughtworks.examsystem.dto;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
@@ -12,13 +13,13 @@ import java.util.List;
  */
 @Getter
 @Setter
+@NoArgsConstructor
 public class PageReturn<T> {
     private Integer currentPage;
 
     private Long total;
 
     private List<T> data;
-
 
     public PageReturn(Integer currentPage, Long total, List<T> data) {
         this.currentPage = currentPage;

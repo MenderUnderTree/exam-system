@@ -1,8 +1,5 @@
 package com.thoughtworks.examsystem.bean;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /**
  * @author : luoweiyao
  * @created : 2018/7/28
@@ -10,7 +7,7 @@ import lombok.Setter;
  * @package : com.thoughtworks.examsystem.bean
  */
 public class ItemBean {
-    private Long itemId;
+    private Long id;
 
     private Integer points;
 
@@ -24,12 +21,12 @@ public class ItemBean {
 
     private String optionD;
 
-    public Long getItemId() {
-        return itemId;
+    public Long getId() {
+        return id;
     }
 
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Integer getPoints() {
