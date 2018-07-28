@@ -1,0 +1,25 @@
+.paper-list{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.item-tip{
+    color: darkgoldenrod;
+    display: inline-block;
+    width: 70px;
+}
+.paper-list-item {
+    overflow: hidden;
+    height: 70px;
+    line-height: 70px;
+    border-bottom: 1px solid #CCCCCC;
+}
+.item-name, .item-operation {
+    width: 50%;
+    text-align: center;
+    float: left;
+}
+.paper-ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
