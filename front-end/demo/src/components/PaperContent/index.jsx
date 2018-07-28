@@ -20,7 +20,7 @@ class PaperContent extends Component {
   componentDidMount() {
     // Fetch data
     // get /papers/{paperId}
-    const mockData = { "paperName": "dsa", "itemBeanList": [{ "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 2, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }] }
+    const mockData = { "paperName": "Test paper", "itemBeanList": [{ "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 2, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }] }
     let userAnwsers = []
 
     const questionList = mockData.itemBeanList.map((e, i) => {
@@ -67,31 +67,33 @@ class PaperContent extends Component {
 
     return (
       <div className='paper-content'>
-        <h1 className="paper-title">{paperName}</h1>
-        {totalPoints && <h2 className="total-points">{`总分: ${totalPoints}分`}</h2>}
-        {
-          questionList.map((e, i) => (
-            <QuestionItem
-              key={i}
-              index={i}
-              description={e.description}
-              points={e.points}
-              anwsers={e.anwsers}
-              isPreview={isPreview}
-              correctIndex={e.correctIndex}
-              selectOption={this.selectOption}
-            />
-          ))
-        }
-        <Popover
-          content={<a onClick={this.handleSubmit}>确定！</a>}
-          title="确定提交？"
-          trigger="click"
-          visible={this.state.popupVisible}
-          onVisibleChange={this.handleVisibleChange}
-        >
-          <Button className={isPreview ? 'hidden' : ''} type="primary">提交答卷</Button>
-        </Popover>
+        <div className='paper-background'>
+          <h1 className="paper-title">{paperName}</h1>
+          {totalPoints && <h2 className="total-points">{`总分: ${totalPoints}分`}</h2>}
+          {
+            questionList.map((e, i) => (
+              <QuestionItem
+                key={i}
+                index={i}
+                description={e.description}
+                points={e.points}
+                anwsers={e.anwsers}
+                isPreview={isPreview}
+                correctIndex={e.correctIndex}
+                selectOption={this.selectOption}
+              />
+            ))
+          }
+          <Popover
+            content={<a onClick={this.handleSubmit}>确定！</a>}
+            title="确定提交？"
+            trigger="click"
+            visible={this.state.popupVisible}
+            onVisibleChange={this.handleVisibleChange}
+          >
+            <Button className={isPreview ? 'hidden' : ''} type="primary">提交答卷</Button>
+          </Popover>
+        </div>
       </div>
     );
   }
