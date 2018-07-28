@@ -90,3 +90,10 @@ buildNumber.properties
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 
+.idea/encodings.xml
+exam-system-backend/src/main/resources/static/
+exam-system-backend/src/main/resources/templates/
+front-end/
+untitled/
+src/main/resources/static/
+src/main/resources/templates/
