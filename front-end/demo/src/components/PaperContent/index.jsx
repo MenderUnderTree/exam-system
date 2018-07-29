@@ -25,7 +25,7 @@ class PaperContent extends Component {
     const paperId = this.props.match.params.id
     let userAnwsers = []
 
-    fetch(`http://rewww.realks.cn:8086/exam/papers/${paperId}`, {
+    fetch(`/exam/papers/${paperId}`, {
       method: 'GET'
     })
       .then(res => {
@@ -36,38 +36,19 @@ class PaperContent extends Component {
         const questionList = res.itemBeanList.map((e, i) => {
           userAnwsers[i] = ''
           return {
-            itemId: res.itemId,
+            itemId: res.id,
             description: e.description,
             points: e.points,
             anwsers: [e.optionA, e.optionB, e.optionC, e.optionD],
             correctIndex: 2
           }
         })
+        this.setState({
+          paperName: res.paperName,
+          questionList,
+          userAnwsers
+        })
       })
-    
-    //     this.setState({
-    //       paperName: res.paperName,
-    //       questionList,
-    //       userAnwsers
-    //     })
-    //   })
-
-    const questionList = mockData.itemBeanList.map((e, i) => {
-      userAnwsers[i] = ''
-      return {
-        itemId: e.itemId,
-        description: e.description,
-        points: e.points,
-        anwsers: [e.optionA, e.optionB, e.optionC, e.optionD],
-        correctIndex: 2
-      }
-    })
-
-    this.setState({
-      paperName: mockData.paperName,
-      questionList,
-      userAnwsers
-    })
   }
 
   handleVisibleChange = (popupVisible) => {
