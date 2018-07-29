@@ -27,7 +27,7 @@ class App extends Component {
                     <HashRouter basename="/" >
                         <Switch>
                             <Route path="/paperlist" exact component={PaperList}></Route>
-                            <Route path="/papercontent" exact component={PaperContent}></Route>
+                            <Route path="/papercontent/:id" exact component={PaperContent}></Route>
                             <Redirect to="/" />
                         </Switch>
                     </HashRouter>
