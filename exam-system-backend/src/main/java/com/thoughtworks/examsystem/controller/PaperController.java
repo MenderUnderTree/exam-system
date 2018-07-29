@@ -61,6 +61,10 @@ public class PaperController {
         return new PageReturn<PaperReturn>(currentPage,datas.getTotalElements(),paperReturns);
     }
 
+    @RequestMapping(value = "/papers/{paperId}/records", method = RequestMethod.POST)
+    public void examAnswer() {
+
+    }
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorInfo exceptionHandler(BadRequestException ex) {

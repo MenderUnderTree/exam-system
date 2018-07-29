@@ -1,5 +1,8 @@
 package com.thoughtworks.examsystem.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,6 +13,8 @@ import java.util.List;
  */
 @Entity
 @Table(name = "tb_paper")
+@Getter
+@Setter
 public class Paper {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -28,37 +33,5 @@ public class Paper {
             inverseJoinColumns = {@JoinColumn(name = "paper_id",referencedColumnName = "id",nullable = false)}
     )
     private List<Item> items;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
-    public void setItems(List<Item> items) {
-        this.items = items;
-    }
 }
 

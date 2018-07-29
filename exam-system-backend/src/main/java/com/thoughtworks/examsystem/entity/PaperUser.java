@@ -27,20 +27,4 @@ public class PaperUser {
 
     @Column
     private Integer point;
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public void setPaperId(Long paperId) {
-        this.paperId = paperId;
-    }
-
-    public void setPoint(Integer point) {
-        this.point = point;
-    }
 }

@@ -10,5 +10,6 @@ import org.springframework.stereotype.Repository;
  * @project : exam-system
  * @package : com.thoughtworks.examsystem.dao
  */
+@Repository
 public interface PaperDao extends JpaRepository<Paper, Long> {
 }
