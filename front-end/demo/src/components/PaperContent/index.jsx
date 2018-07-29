@@ -21,7 +21,31 @@ class PaperContent extends Component {
     // Fetch data
     // get /papers/{paperId}
     const mockData = { "paperName": "Test paper", "itemBeanList": [{ "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 1, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }, { "itemId": 2, "points": 5, "description": "jiojiwda", "optionA": "hui", "optionB": "da", "optionC": "dawdw", "optionD": "dwa" }] }
+
+    const paperId = this.props.match.params.id
     let userAnwsers = []
+
+    // fetch(`/papers/${paperId}`, {
+    //   method: 'GET'
+    // })
+    //   .then(res => {
+    //     const questionList = res.itemBeanList.map((e, i) => {
+    //       userAnwsers[i] = ''
+    //       return {
+    //         itemId: res.itemId,
+    //         description: e.description,
+    //         points: e.points,
+    //         anwsers: [e.optionA, e.optionB, e.optionC, e.optionD],
+    //         correctIndex: 2
+    //       }
+    //     })
+    
+    //     this.setState({
+    //       paperName: res.paperName,
+    //       questionList,
+    //       userAnwsers
+    //     })
+    //   })
 
     const questionList = mockData.itemBeanList.map((e, i) => {
       userAnwsers[i] = ''
