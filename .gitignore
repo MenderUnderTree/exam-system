@@ -96,3 +96,4 @@ exam-system-backend/src/main/resources/templates/
 untitled/
 src/main/resources/static/
 src/main/resources/templates/
+/.idea/dataSources.xml
