@@ -1,5 +1,6 @@
 package com.thoughtworks.examsystem.entity;
 
+import com.thoughtworks.examsystem.entity.enums.Option;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,13 +21,13 @@ public class Record {
     private Long id;
 
     @Column(name = "paper_user_id")
-    private Integer paperUserId;
+    private Long paperUserId;
 
     @Column(name = "item_id")
-    private Integer itemId;
+    private Long itemId;
 
     @Column
-    private String answer;
+    private Option answer;
 
     @Column(name = "is_correct")
     private Boolean isCorrect;
