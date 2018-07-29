@@ -1,12 +1,11 @@
 package com.thoughtworks.examsystem.entity;
 
+import com.thoughtworks.examsystem.entity.enums.Option;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.catalina.LifecycleState;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 /**
  * @author : luoweiyao
@@ -43,26 +42,7 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "enum('A','B','C','D')")
-    private CorrectOption correctOption;
-
-    public enum CorrectOption {
-        /**
-         * Option A is correct
-         */
-        A,
-        /**
-         * Option B is correct
-         */
-        B,
-        /**
-         * Option C is correct
-         */
-        C,
-        /**
-         * Option D is correct
-         */
-        D
-    }
+    private Option correctOption;
 
     @ManyToMany(mappedBy = "items")
     private List<Paper> papers;

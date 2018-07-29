@@ -97,3 +97,6 @@ untitled/
 src/main/resources/static/
 src/main/resources/templates/
 /.idea/dataSources.xml
+/.idea/compiler.xml
+/.idea/misc.xml
+/.idea/scala_compiler.xml

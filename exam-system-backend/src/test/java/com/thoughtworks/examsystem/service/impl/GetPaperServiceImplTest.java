@@ -1,8 +1,5 @@
 package com.thoughtworks.examsystem.service.impl;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.thoughtworks.examsystem.ExamSystemApplication;
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
 import com.thoughtworks.examsystem.dao.ItemDao;
 import com.thoughtworks.examsystem.dao.PaperDao;
@@ -10,6 +7,7 @@ import com.thoughtworks.examsystem.dao.PaperUserRepository;
 import com.thoughtworks.examsystem.entity.Item;
 import com.thoughtworks.examsystem.entity.Paper;
 import com.thoughtworks.examsystem.entity.PaperUser;
+import com.thoughtworks.examsystem.entity.enums.Option;
 import com.thoughtworks.examsystem.exception.PaperHasBeenFinishedException;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.hamcrest.core.Is;
@@ -18,20 +16,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.json.JsonTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @author : luoweiyao
@@ -43,7 +35,6 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DataJpaTest
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @ComponentScan(basePackages = {"com.thoughtworks.*"})
 public class GetPaperServiceImplTest {
     @Resource
@@ -66,7 +57,7 @@ public class GetPaperServiceImplTest {
         itemA.setOptionB("da");
         itemA.setOptionC("dawdw");
         itemA.setOptionD("dwa");
-        itemA.setCorrectOption(Item.CorrectOption.A);
+        itemA.setCorrectOption(Option.A);
         itemA.setDescription("jiojiwda");
         itemA.setPoints(5);
         itemA = itemDao.save(itemA);
@@ -76,7 +67,7 @@ public class GetPaperServiceImplTest {
         itemB.setOptionB("da");
         itemB.setOptionC("dawdw");
         itemB.setOptionD("dwa");
-        itemB.setCorrectOption(Item.CorrectOption.A);
+        itemB.setCorrectOption(Option.A);
         itemB.setDescription("jiojiwda");
         itemB.setPoints(5);
         itemB = itemDao.save(itemB);
@@ -89,10 +80,10 @@ public class GetPaperServiceImplTest {
         paperId = paperDao.save(paper).getId();
 
         Paper finishedPaper = new Paper();
-        paper.setName("finished");
-        paper.setPrice(0);
-        paper.setItems(items);
-        finishedPaperId = paperDao.save(paper).getId();
+        finishedPaper.setName("finished");
+        finishedPaper.setPrice(0);
+        finishedPaper.setItems(items);
+        finishedPaperId = paperDao.save(finishedPaper).getId();
 
         PaperUser paperUser = new PaperUser();
         paperUser.setPaperId(finishedPaperId);

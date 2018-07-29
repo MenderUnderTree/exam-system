@@ -9,6 +9,7 @@ import com.thoughtworks.examsystem.dto.PaperReturn;
 import com.thoughtworks.examsystem.entity.Paper;
 import com.thoughtworks.examsystem.exception.BadRequestException;
 import com.thoughtworks.examsystem.entity.PaperUser;
+import com.thoughtworks.examsystem.service.AnswerPaperService;
 import com.thoughtworks.examsystem.service.GetPaperService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -41,6 +42,9 @@ public class PaperController {
     @Autowired
     private PaperUserRepository paperUserRepository;
 
+    @Resource
+    private AnswerPaperService answerPaperService;
+
     @RequestMapping(value = "/papers/{paperId}", method = RequestMethod.GET)
     public GetPaperResponse getPaper(@PathVariable long paperId) {
         return getPaperService.doService(paperId);
@@ -62,7 +66,7 @@ public class PaperController {
     }
 
     @RequestMapping(value = "/papers/{paperId}/records", method = RequestMethod.POST)
-    public void examAnswer() {
+    public void examAnswer(@PathVariable long paperId, @RequestBody AnswerPaperService answerPaperService) {
 
     }
     @ExceptionHandler(BadRequestException.class)
