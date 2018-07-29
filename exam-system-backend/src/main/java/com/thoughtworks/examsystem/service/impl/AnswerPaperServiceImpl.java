@@ -1,8 +1,9 @@
 package com.thoughtworks.examsystem.service.impl;
 
 import com.thoughtworks.examsystem.bean.Answer;
+import com.thoughtworks.examsystem.bean.AnswerBeanResponse;
 import com.thoughtworks.examsystem.bean.AnswerItemBean;
-import com.thoughtworks.examsystem.bean.AnswerPaperRequest;
+import com.thoughtworks.examsystem.bean.RecordBean;
 import com.thoughtworks.examsystem.dao.PaperDao;
 import com.thoughtworks.examsystem.dao.PaperUserRepository;
 import com.thoughtworks.examsystem.entity.Paper;
@@ -28,35 +29,23 @@ public class AnswerPaperServiceImpl implements AnswerPaperService {
 
     @Transactional
     @Override
-    public void exam(long paperId, AnswerPaperRequest answer) {
-        Paper paper = paperDao.getOne(paperId);
-        if (paper == null) {
-            throw new InvalidParameterException();
-        }
+    public AnswerBeanResponse exam(long paperId) {
+        long userId = UserUtil.getLoginUserId();
         PaperUser paperUser = new PaperUser();
+        paperUser.setUserId(userId);
         paperUser.setPaperId(paperId);
-        paperUser.setUserId(UserUtil.getLoginUserId());
-        long paperUserId = paperUserRepository.save(paperUser).getId();
-        List<Record> records = paper.getItems().stream().map(value -> {
-            Record record = new Record();
-            record.setPaperUserId(paperUserId);
-            record.setItemId(value.getId());
-            Answer presentAnswer = getAnswerItemBean(answer.getAnswerItemBeans(), value.getId()).getAnswer();
-            if (presentAnswer != null) {
-                record.setAnswer(Option.valueOf(presentAnswer.name()));
-                record.setIsCorrect(presentAnswer.name().equals(value.getCorrectOption().name()));
-            } else {
-                record.setIsCorrect(false);
-            }
-            return record;
-        }).collect(Collectors.toList());
-
-    }
-
-    private AnswerItemBean getAnswerItemBean(List<AnswerItemBean> answerItemBeans, long itemId) {
-        return answerItemBeans.stream()
-                .filter(v -> v.getId() == itemId)
-                .findFirst()
-                .orElseThrow(InvalidParameterException::new);
+        paperUserRepository.save(paperUser);
+        Paper paper = paperDao.getOne(paperId);
+        List<RecordBean> recordBeans = paper.getItems().stream()
+                .map(value -> {
+                    RecordBean recordBean = new RecordBean();
+                    recordBean.setId(value.getId());
+                    recordBean.setCorrectIndex(value.getCorrectOption().ordinal());
+                    return recordBean;
+                })
+                .collect(Collectors.toList());
+        AnswerBeanResponse answerBeanResponse = new AnswerBeanResponse();
+        answerBeanResponse.setRecordBeans(recordBeans);
+        return answerBeanResponse;
     }
 }

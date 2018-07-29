@@ -1,5 +1,6 @@
 package com.thoughtworks.examsystem.controller;
 
+import com.thoughtworks.examsystem.bean.AnswerBeanResponse;
 import com.thoughtworks.examsystem.bean.GetPaperResponse;
 import com.thoughtworks.examsystem.bean.ErrorInfo;
 import com.thoughtworks.examsystem.dao.PaperRepository;
@@ -65,9 +66,9 @@ public class PaperController {
         return new PageReturn<PaperReturn>(currentPage,datas.getTotalElements(),paperReturns);
     }
 
-    @RequestMapping(value = "/papers/{paperId}/records", method = RequestMethod.POST)
-    public void examAnswer(@PathVariable long paperId, @RequestBody AnswerPaperService answerPaperService) {
-
+    @RequestMapping(value = "/papers/{paperId}/records", method = RequestMethod.GET)
+    public AnswerBeanResponse examAnswer(@PathVariable long paperId) {
+        return answerPaperService.exam(paperId);
     }
     @ExceptionHandler(BadRequestException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
