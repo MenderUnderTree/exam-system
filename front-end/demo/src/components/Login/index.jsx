@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import {withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import './index.css'
 
-import { Form, Icon, Input, Button } from 'antd';
+import { Form, Icon, Input, Button, message } from 'antd';
 
 const FormItem = Form.Item;
 
@@ -11,7 +11,19 @@ class NormalLoginForm extends React.Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                this.props.history.push('/paperlist');
+                fetch('/user/login?username=' + values.userName + '&password=' + values.password, {
+                    method: 'GET'
+                })
+                    .then((res)=>{
+                        return res.text()
+                    })
+                    .then((res)=>{
+                        if(res === "用户不存在！" || res === "密码错误！") {
+                            message.error(res);
+                        } else {
+                            this.props.history.push('/paperlist');
+                        }
+                    })
             }
         });
 

@@ -93,5 +93,6 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  }
+  },
+  "proxy":"http://www.realks.cn:8086/"
 }
